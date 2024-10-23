@@ -1,5 +1,6 @@
-# OctoPrint PSU Control - Home Assistant
-Adds Home Assistant support to OctoPrint-PSUControl as a sub-plugin
+# OctoPrint PSU Control - RestAPI
+Adds Rest API support to OctoPrint-PSUControl as a sub-plugin  
+(Forked form Erik de Keijzer's OctoPrint-PSUControl-HomeAssistant)
 
 ## Setup
 - Install the plugin using Plugin Manager from Settings
@@ -11,16 +12,12 @@ Adds Home Assistant support to OctoPrint-PSUControl as a sub-plugin
 [#16](https://github.com/edekeijzer/OctoPrint-PSUControl-HomeAssistant/issues/16))
 
 ## Configuration
-* Enter the URL of your Home Assistant Installation
-* Go to your Home Assistant profile
-* At the bottom, go to *Long-Lived Access Tokens*
-* Click *Create Token*, give the token a name (suggestion: OctoPrint PSUControl) and click *OK*
-* Copy the token and paste it into the *Access token* field in the plugin settings
-* At *Entity ID* enter the ID of the Home Assistant entity you want to control (for example: *switch.my_smart_outlet*)
-* If your HA installation is running HTTPS with a self-signed certificate, uncheck the *Verify certificate* option
+* Enter the Host URL of your Rest API server
+* Enter the API key
+
 
 ## Support
-Please check your logs first. If they do not explain your issue, open an issue in GitHub. Please set *octoprint.plugins.psucontrol* and *octoprint.plugins.psucontrol_homeassistant* to **DEBUG** and include the relevant logs. Feature requests are welcome as well.
+Please check your logs first. If they do not explain your issue, open an issue in GitHub. Please set *octoprint.plugins.psucontrol* and *octoprint.plugins.psucontrol_restapi* to **DEBUG** and include the relevant logs. Feature requests are welcome as well.
 
 ## Todo
 - [x] Add descriptions to settings page

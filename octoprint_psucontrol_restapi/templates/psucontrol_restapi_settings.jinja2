@@ -1,0 +1,60 @@
+<!-- ko ifnot: settings.plugins.psucontrol -->
+<span class="help-inline label label-important">This plugin requires <a href="https://plugins.octoprint.org/plugins/psucontrol/" target="_blank">PSU Control</a> in order to function. It can be installed from the Plugin Manager.</span>
+<!-- /ko -->
+<!-- ko if: settings.plugins.psucontrol && !(settings.plugins.psucontrol.switchingMethod() === "PLUGIN" && settings.plugins.psucontrol.switchingPlugin() === "psucontrol_restapi") -->
+    <span class="help-inline label label-important">Please set the switching method to <b>PLUGIN</b> and the switching plugin to <b>PSU Control - RestAPI</b> in the PSU Control settings to use this plugin.</span>
+<!-- /ko -->
+<!-- ko if: settings.plugins.psucontrol && !(settings.plugins.psucontrol.sensingMethod() === "PLUGIN" && settings.plugins.psucontrol.sensingPlugin() === "psucontrol_restapi") -->
+    <span class="help-block label label-important">Please set the sensing method to <b>PLUGIN</b> and the sensing plugin to <b>PSU Control - RestAPI</b> in the PSU Control settings to use this plugin.</span>
+<!-- /ko -->
+<form class="form-horizontal">
+    <h4>PSU Control - RestAPI settings</h4>
+    <div class="control-group">
+        <label class="control-label">Address</label>
+        <div class="controls">
+            <input type="text" class="input" data-bind="value: settings.plugins.psucontrol_restapi.address">
+            <span class="help-block">The IP address or hostname of your RestAPI server. e.g. http://ip:port or http://hostname:port. Do not include a trailing slash /</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Access token</label>
+        <div class="controls">
+            <input type="text" class="input" data-bind="value: settings.plugins.psucontrol_restapi.api_key">
+            <span class="help-block">The long-lived access token for the Rest API.</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">On Endpoint</label>
+        <div class="controls">
+            <input type="text" class="input" data-bind="value: settings.plugins.psucontrol_restapi.on_endpoint">
+            <span class="help-block">The endpoint to call to turn the device on.</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Off Endpoint</label>
+        <div class="controls">
+            <input type="text" class="input" data-bind="value: settings.plugins.psucontrol_restapi.off_endpoint">
+            <span class="help-block">The endpoint to call to turn the device off.</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">State Endpoint</label>
+        <div class="controls">
+            <input type="text" class="input" data-bind="value: settings.plugins.psucontrol_restapi.state_endpoint">
+            <span class="help-block">The endpoint to call to get the devices state.</span>
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+            <input type="checkbox" data-bind="checked: settings.plugins.psucontrol_restapi.verify_certificate"> Verify certificate
+            </label>
+            <!-- ko if: settings.plugins.psucontrol_restapi.verify_certificate -->
+            <span class="help-block">Verify TLS certificate and do not connect on certificate issues.</span>
+            <!-- /ko -->
+            <!-- ko ifnot: settings.plugins.psucontrol_restapi.verify_certificate -->
+            <span class="help-block">Do not verify TLS certificate.</span>
+            <!-- /ko -->
+        </div>
+    </div>
+</form>
